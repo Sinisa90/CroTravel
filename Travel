@@ -1,0 +1,30 @@
+#Value definition function
+def values():
+  departure = input("Departure: ")
+  arrival = input("Arrival: ")
+  print("Enter distane between ",arrival," and ",departure," in [Km]")
+  distance = float(input())
+  print("Enter gas price in PLN")
+  gas_price = float(input())
+  print("Enter the average gas consumption")
+  avg_gas_consumption = float(input())
+  print("Do you want to check entered values? (Yes/No)")
+  entered_values=input()
+  return departure, arrival, distance, gas_price, avg_gas_consumption, entered_values
+
+#Variables which are declared in the function
+departure, arrival, distance, gas_price, avg_gas_consumption, entered_values = values()
+
+#Overview of the entered values
+if entered_values == "Yes":
+  print(departure)
+  print(arrival)
+  print(distance)
+  print(gas_price)
+  print(avg_gas_consumption,"\n")
+
+#Cost of gas
+#"round" function gives us result of devision till 2nd decimal number
+gas_used = round(((distance/(100/avg_gas_consumption))*gas_price),2)
+print("One way gas cost:  ",gas_used, "zl")
+print("Both ways gas cost:",2*gas_used, "zl")
